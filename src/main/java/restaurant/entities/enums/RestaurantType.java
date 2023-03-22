@@ -1,4 +1,4 @@
-package restaurant.entity.enums;
+package restaurant.entities.enums;
 
 public enum RestaurantType {
     FAST_FOOD,
