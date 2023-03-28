@@ -49,4 +49,11 @@ public class MenuItem {
     @JoinColumn(name = "subcategory_id")
     private Subcategory subcategory;
 
+    public void addCheque(Cheque cheque){
+        if (cheques == null){
+            cheques = new ArrayList<>();
+        }
+        cheques.add(cheque);
+    }
+
 }

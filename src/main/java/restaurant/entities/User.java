@@ -32,9 +32,12 @@ public class User implements UserDetails {
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
+    @Column(unique = true)
     private String email;
     private String password;
+    @Column(unique = true)
     private String phoneNumber;
+    @Enumerated(EnumType.STRING)
     private Role role;
     private int experience;
     private boolean accepted;

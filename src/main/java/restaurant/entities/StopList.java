@@ -17,7 +17,8 @@ public class StopList {
     @SequenceGenerator(
             name = "stop_list_id_gen",
             sequenceName = "stop_list_seq",
-            allocationSize = 1
+            allocationSize = 1,
+            initialValue = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
@@ -26,8 +27,8 @@ public class StopList {
     private Long id;
     private String reason;
     private LocalDate date;
-    @ManyToOne(cascade =
-            {CascadeType.PERSIST,
+    @ManyToOne(cascade = {
+                    CascadeType.PERSIST,
                     CascadeType.MERGE,
                     CascadeType.REFRESH,
                     CascadeType.DETACH})

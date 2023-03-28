@@ -17,7 +17,8 @@ public class Restaurant {
     @SequenceGenerator(
             name = "restaurant_id_gen",
             sequenceName = "restaurant_seq",
-            allocationSize = 1
+            allocationSize = 1,
+            initialValue = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
@@ -36,4 +37,10 @@ public class Restaurant {
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MenuItem> menuItems = new ArrayList<>();
 
+    public void addUser(User user) {
+        if (users == null) {
+            users = new ArrayList<>();
+        }
+        users.add(user);
+    }
 }

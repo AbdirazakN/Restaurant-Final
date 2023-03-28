@@ -8,6 +8,8 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jakarta.persistence.CascadeType.*;
+
 @Entity
 @Table(name = "subcategories")
 @Getter
@@ -29,13 +31,13 @@ public class Subcategory {
 
     @ManyToOne(cascade =
             {CascadeType.PERSIST,
-                    CascadeType.MERGE,
+                    MERGE,
                     CascadeType.REFRESH,
                     CascadeType.DETACH})
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @OneToMany(mappedBy = "subcategory", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "subcategory", cascade = {MERGE,DETACH,PERSIST,REFRESH,REMOVE}, orphanRemoval = true)
     private List<MenuItem> menuItems = new ArrayList<>();
 
 }
